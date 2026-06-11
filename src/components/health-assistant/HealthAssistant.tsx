@@ -1,5 +1,5 @@
 import { Tabs, TabsContent, TabsTrigger } from "@/components/ui/tabs";
-import { MessageCircle, Search, Bell, MapPin, Activity, Stethoscope } from "lucide-react";
+import { MessageCircle, Search, Bell, MapPin, Activity, Stethoscope, AlertTriangle } from "lucide-react";
 
 // Import custom components
 import Header from "@/components/health-assistant/Header";
@@ -9,6 +9,8 @@ import HealthInfoTab from "@/components/health-assistant/HealthInfoTab";
 import MapView from "@/components/health-assistant/MapView";
 import ChatTab from "@/components/health-assistant/ChatTab";
 import HealthTips from "@/components/health-assistant/HealthTips";
+import BMICalculator from "@/components/health-assistant/BMICalculator";
+import EmergencyTab from "@/components/health-assistant/EmergencyTab";
 import { useHealthAssistant } from "@/components/health-assistant/useHealthAssistant";
 
 // Main Health Assistant component that organizes the application structure
@@ -71,6 +73,10 @@ const HealthAssistant = () => {
               <Stethoscope className="mr-2 h-4 w-4" />
               Wellness
             </TabsTrigger>
+            <TabsTrigger value="emergency" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-red-600 data-[state=active]:to-red-700 data-[state=active]:text-white flex items-center">
+              <AlertTriangle className="mr-2 h-4 w-4" />
+              Emergency
+            </TabsTrigger>
           </TabsListChanged>
 
           <TabsContent value="chat" className="mt-6">
@@ -99,9 +105,14 @@ const HealthAssistant = () => {
           </TabsContent>
           
           <TabsContent value="wellness" className="mt-6">
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <BMICalculator />
               <HealthTips />
             </div>
+          </TabsContent>
+
+          <TabsContent value="emergency" className="mt-6">
+            <EmergencyTab />
           </TabsContent>
         </Tabs>
       </div>

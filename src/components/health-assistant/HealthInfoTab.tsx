@@ -1,7 +1,7 @@
 
 import React from "react";
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
-import { ArrowRight, Thermometer, Activity, Pill, Stethoscope, Heart, Cross, LoaderCircle } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Thermometer, Activity, Pill, Stethoscope, Heart, Cross, LoaderCircle } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 interface HealthInfoTabProps {
@@ -12,50 +12,42 @@ const HealthInfoTab = ({ isLoading = false }: HealthInfoTabProps) => {
   const commonHealthTopics = [
     {
       title: "Fever",
-      content: "Fever is generally defined as a body temperature above 98.6°F (37°C). Common causes include infections, vaccinations, heat exposure, and inflammatory conditions.",
-      link: "https://www.webmd.com/cold-and-flu/fever",
+      content: "A body temperature above 98.6°F (37°C). Common causes: infections, vaccinations, heat exposure. Home care: rest, fluids, paracetamol. See a doctor if fever exceeds 103°F or lasts more than 3 days.",
       icon: Thermometer
     },
     {
       title: "Common Cold",
-      content: "The common cold is a viral infection primarily affecting the nose and throat. Symptoms include runny nose, sore throat, cough, congestion, and mild body aches.",
-      link: "https://www.webmd.com/cold-and-flu/cold-guide",
+      content: "Viral infection of the nose and throat. Symptoms: runny nose, sore throat, cough, congestion. Home care: rest, warm fluids, steam inhalation, vitamin C. Usually resolves in 7-10 days.",
       icon: Activity
     },
     {
       title: "Headache",
-      content: "Headaches can be caused by stress, dehydration, lack of sleep, or underlying medical conditions. Different types include tension, migraine, and cluster headaches.",
-      link: "https://www.webmd.com/migraines-headaches/default.htm",
+      content: "Can be tension, migraine, or cluster type. Triggers: stress, dehydration, lack of sleep, screen time. Home care: rest in dark room, cold compress, hydration, OTC pain relievers. Seek help if sudden or severe.",
       icon: Pill
     },
     {
       title: "Cough",
-      content: "A cough is a reflex action to clear your airways of mucus and irritants. It may be caused by various conditions including common cold, allergies, or respiratory infections.",
-      link: "https://www.webmd.com/cold-and-flu/cough-relief-12/default.htm",
+      content: "Reflex to clear airways. Can be dry or productive. Home care: honey, warm fluids, steam inhalation, cough drops. See a doctor if coughing blood, lasting 3+ weeks, or with breathing difficulty.",
       icon: Stethoscope
     },
     {
       title: "Hypertension",
-      content: "High blood pressure (hypertension) is a common condition that can lead to serious health problems like heart disease and stroke if untreated.",
-      link: "https://www.webmd.com/hypertension-high-blood-pressure/default.htm",
+      content: "High blood pressure (above 140/90 mmHg). Often has no symptoms. Risk factors: salt intake, obesity, stress, family history. Prevention: low-sodium diet, exercise, stress management, regular monitoring.",
       icon: Heart
     },
     {
       title: "Diabetes",
-      content: "Diabetes is a chronic condition that affects how your body turns food into energy, resulting in too much sugar in your bloodstream.",
-      link: "https://www.webmd.com/diabetes/default.htm",
+      content: "Chronic condition affecting blood sugar regulation. Types: Type 1 (autoimmune), Type 2 (lifestyle). Symptoms: frequent urination, excessive thirst, fatigue. Management: diet, exercise, medication, monitoring.",
       icon: Pill
     },
     {
       title: "Sore Throat",
-      content: "A sore throat is pain, scratchiness or irritation of the throat that often worsens when you swallow. Common causes include viral infections, bacterial infections, and allergies.",
-      link: "https://www.webmd.com/cold-and-flu/understanding-sore-throat-basics",
+      content: "Pain or irritation worsening when swallowing. Causes: viral/bacterial infections, allergies. Home care: salt water gargle, warm liquids, honey, lozenges. See a doctor if white patches appear or pain is severe.",
       icon: Cross
     },
     {
       title: "Stomach Pain",
-      content: "Stomach pain can range from mild discomfort to severe, sharp pain. Common causes include indigestion, acid reflux, gastritis, and food poisoning.",
-      link: "https://www.webmd.com/digestive-disorders/digestive-diseases-stomach-pain",
+      content: "Ranges from mild to severe. Common causes: indigestion, acid reflux, gastritis, food poisoning. Home care: BRAT diet, ginger tea, avoid spicy food. Seek help if severe, persistent, or bloody stool.",
       icon: Pill
     }
   ];
@@ -81,9 +73,7 @@ const HealthInfoTab = ({ isLoading = false }: HealthInfoTabProps) => {
                   <Skeleton className="h-4 w-3/4 bg-gray-600 mb-2" />
                   <Skeleton className="h-4 w-5/6 bg-gray-600" />
                 </CardContent>
-                <CardFooter className="pt-0">
-                  <Skeleton className="h-4 w-20 bg-gray-600" />
-                </CardFooter>
+
               </Card>
             ))}
           </CardContent>
@@ -113,16 +103,7 @@ const HealthInfoTab = ({ isLoading = false }: HealthInfoTabProps) => {
               <CardContent className="pt-0">
                 <p className="text-sm text-gray-300">{topic.content}</p>
               </CardContent>
-              <CardFooter className="pt-0">
-                <a 
-                  href={topic.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-cyan-400 hover:text-cyan-300 hover:underline text-sm flex items-center group"
-                >
-                  Learn more <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
-                </a>
-              </CardFooter>
+
             </Card>
           ))}
         </CardContent>

@@ -19,10 +19,7 @@ const Header = ({ language, handleLanguageChange }: HeaderProps) => {
           <h1 className="text-2xl font-bold text-white tracking-tight">Health Assistant</h1>
         </div>
         <div className="flex items-center space-x-4">
-          <div className="relative">
-            <Bell className="h-5 w-5 hover:text-cyan-300 transition-colors cursor-pointer" />
-            <span className="absolute -top-1 -right-1 bg-red-500 rounded-full w-4 h-4 flex items-center justify-center text-xs">2</span>
-          </div>
+          <Bell className="h-5 w-5 hover:text-cyan-300 transition-colors cursor-pointer" />
           <Select defaultValue={language} onValueChange={handleLanguageChange}>
             <SelectTrigger className="w-32 bg-cyan-700/50 border border-cyan-500/30 text-white focus:ring-cyan-400">
               <SelectValue placeholder="Language" />

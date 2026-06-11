@@ -10,7 +10,7 @@ interface ChatMessageProps {
 const ChatMessage = ({ role, content, isLast = false }: ChatMessageProps) => {
   return (
     <div className={`flex ${role === "user" ? "justify-end" : "justify-start"}`}>
-      {role === "bot" && (
+      {role === "system" && (
         <div className="flex-shrink-0 mr-3">
           <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -26,7 +26,7 @@ const ChatMessage = ({ role, content, isLast = false }: ChatMessageProps) => {
             : "bg-gray-800 text-gray-100 border border-gray-700"
         } ${isLast ? "animate-chat-bubble" : ""}`}
       >
-        <p className={`whitespace-pre-wrap ${role === "bot" ? "text-cyan-50" : "text-white"}`}>{content}</p>
+        <p className={`whitespace-pre-wrap ${role === "system" ? "text-cyan-50" : "text-white"}`}>{content}</p>
       </div>
       {role === "user" && (
         <div className="flex-shrink-0 ml-3">

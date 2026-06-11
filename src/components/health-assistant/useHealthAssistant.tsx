@@ -89,7 +89,7 @@ export const useHealthAssistant = () => {
     
     // Simulate processing delay
     setTimeout(() => {
-      const randomRate = Math.floor(Math.random() * (100 - 60 + 1)) + 60;
+      const randomRate = Math.floor(Math.random() * (110 - 55 + 1)) + 55;
       
       let healthStatus = "normal";
       if (randomRate < 60) healthStatus = "below normal";
